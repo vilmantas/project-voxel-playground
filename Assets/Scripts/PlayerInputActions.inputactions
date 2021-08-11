@@ -1,0 +1,134 @@
+{
+    "name": "PlayerInputActions",
+    "maps": [
+        {
+            "name": "CharacterControls",
+            "id": "de824054-7c00-4640-86e7-556afcc049b7",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "7840ac43-c1b1-4997-ae46-a09c0dbebf09",
+                    "expectedControlType": "Button",
+                    "processors": "NormalizeVector2",
+                    "interactions": ""
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "b45fa549-f498-4c6d-9929-25bbade728d8",
+                    "expectedControlType": "Button",
+                    "processors": "NormalizeVector2",
+                    "interactions": ""
+                },
+                {
+                    "name": "ActivateMainhand",
+                    "type": "Value",
+                    "id": "47c7556d-39e0-4090-8792-bfbdbcf58cfe",
+                    "expectedControlType": "Analog",
+                    "processors": "NormalizeVector2",
+                    "interactions": ""
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "ed3b04fd-8848-4d85-8d97-5e09f7f59a30",
+                    "expectedControlType": "Vector2",
+                    "processors": "NormalizeVector3",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "92df5d70-96fd-49fa-96a1-29e97d195151",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "4c4a8f66-e9a0-4dd3-a862-4ef1b225ab72",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "f804ed7d-f000-458e-bcef-90370a3ada3d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "259bf94d-905c-4b2d-9d07-1720e2fee2f3",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "6000a3c2-941d-4421-8b50-e00d5fb6778a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4f4fe6fa-4c69-4575-8e71-196d1b225133",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ced65ce4-52d7-44f0-9dc9-e0c20cb45e06",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateMainhand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d7fc787-ac6a-4688-808c-1b364e72c0a3",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
