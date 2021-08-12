@@ -1,25 +1,70 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Activatable))]
+[RequireComponent(typeof(ActivatableTriggererType))]
 public class CollisionTriggerer : ActivatableTriggerer
 {
-    
-    public Activatable Activatable;
+    public Activatable Target;
 
-    private void OnTriggerEnter(Collider other)
+    public ActivatableTriggerer Collider;
+
+    [Header("How to trigger the target")]
+    public TriggerType Type;
+
+    public ActivatableTriggererType TriggerTypeComponent;
+
+    public bool TryActivate;
+
+    void OnTriggerEnter(Collider other)
     {
-        if (other.name == "piggy")
+        if (TryActivate)
         {
-            Debug.Log(Activatable.HasGuards);
-            Debug.Log(Activatable.CanActivate);
-            Debug.Log(Activatable.TryToggle(this));
+            Activate(other);
+        }
+        else
+        {
+            var otherTriggerer = other.GetComponent<ActivatableTriggerer>();
+
+            if (otherTriggerer == Collider)
+            {
+                var type = TriggerTypeComponent as FlagActivatableTriggererType;
+
+                type.TrySetFlag(Target, Collider);
+            }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        Debug.Log(other.name);
+        if (TryActivate)
+        {
+            Activate(other);
+        }
+        else
+        {
+            var otherTriggerer = other.GetComponent<ActivatableTriggerer>();
+
+            if (otherTriggerer == Collider)
+            {
+                var type = TriggerTypeComponent as FlagActivatableTriggererType;
+
+                type.TryUnsetFlag(Target, Collider);
+            }
+        }
+    }
+
+    private void Activate(Collider other)
+    {
+        var otherTriggerer = other.GetComponent<ActivatableTriggerer>();
+
+        if (otherTriggerer == Collider)
+        {
+            var type = TriggerTypeComponent as FlagActivatableTriggererType;
+
+            type.TryActivate(Target, Collider);
+        }
     }
 }

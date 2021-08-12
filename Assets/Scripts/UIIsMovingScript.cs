@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class UIIsMovingScript : MonoBehaviour
 {
-    public MovementScript Movement;
+    public CharacterActionsController Movement;
 
     public Text Text;
 
     // Update is called once per frame
     void Update()
     {
-        Text.text = Movement.IsMoving.ToString();
+        Text.text = Movement.isMovementPrssed.ToString();
     }
 }

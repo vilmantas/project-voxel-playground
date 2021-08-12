@@ -10,14 +10,19 @@ public class ModelToggleScript : Activatable
 
     public bool DefaultValue = true;
 
+    public override void Activate(ActivatableTriggerer activatableTriggerer)
+    {
+        Toggle();
+    }
+
     public override void Activate()
     {
-        WhenOn.enabled = !WhenOn.enabled;
-        WhenOff.enabled = !WhenOff.enabled;
+        Toggle();
     }
 
     private void Toggle()
     {
-
+        WhenOn.enabled = !WhenOn.enabled;
+        WhenOff.enabled = !WhenOff.enabled;
     }
 }

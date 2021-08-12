@@ -49,6 +49,14 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""NormalizeVector3"",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""f8b7da87-32d7-402b-9fa2-e1550dcb7651"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector3"",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e298400-cd96-4057-95a2-a25565b69c18"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -151,6 +170,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_CharacterControls_Run = m_CharacterControls.FindAction("Run", throwIfNotFound: true);
         m_CharacterControls_ActivateMainhand = m_CharacterControls.FindAction("ActivateMainhand", throwIfNotFound: true);
         m_CharacterControls_Rotate = m_CharacterControls.FindAction("Rotate", throwIfNotFound: true);
+        m_CharacterControls_Interaction = m_CharacterControls.FindAction("Interaction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,6 +224,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_CharacterControls_Run;
     private readonly InputAction m_CharacterControls_ActivateMainhand;
     private readonly InputAction m_CharacterControls_Rotate;
+    private readonly InputAction m_CharacterControls_Interaction;
     public struct CharacterControlsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -212,6 +233,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Run => m_Wrapper.m_CharacterControls_Run;
         public InputAction @ActivateMainhand => m_Wrapper.m_CharacterControls_ActivateMainhand;
         public InputAction @Rotate => m_Wrapper.m_CharacterControls_Rotate;
+        public InputAction @Interaction => m_Wrapper.m_CharacterControls_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +255,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Rotate.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRotate;
+                @Interaction.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInteraction;
+                @Interaction.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInteraction;
+                @Interaction.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInteraction;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -249,6 +274,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @Interaction.started += instance.OnInteraction;
+                @Interaction.performed += instance.OnInteraction;
+                @Interaction.canceled += instance.OnInteraction;
             }
         }
     }
@@ -259,5 +287,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnActivateMainhand(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
 }

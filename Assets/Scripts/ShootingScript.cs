@@ -8,7 +8,17 @@ public class ShootingScript : ActivatableItem
 
     public float BulletSpeed;
 
+    public override void Activate(ActivatableTriggerer activatableTriggerer)
+    {
+        Shoot();
+    }
+
     public override void Activate()
+    {
+        Shoot();
+    }
+
+    private void Shoot()
     {
         var transform = GetComponent<Transform>();
 
@@ -17,21 +27,5 @@ public class ShootingScript : ActivatableItem
         var rb = bullet.GetComponentInChildren<Rigidbody>();
 
         rb.velocity = bullet.transform.forward * BulletSpeed;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (false)// (Input.GetKeyUp(KeyCode.E))
-        {
-            var transform = GetComponent<Transform>();
-
-            var bullet = Instantiate(ButtletModel, transform.position, transform.rotation);
-
-            var rb = bullet.GetComponentInChildren<Rigidbody>();
-
-            rb.velocity = bullet.transform.forward * BulletSpeed;
-            //rb.AddForce(Vector3.up * BulletSpeed);
-        }
     }
 }

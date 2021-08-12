@@ -36,6 +36,14 @@
                     "expectedControlType": "Vector2",
                     "processors": "NormalizeVector3",
                     "interactions": ""
+                },
+                {
+                    "name": "Interaction",
+                    "type": "Button",
+                    "id": "f8b7da87-32d7-402b-9fa2-e1550dcb7651",
+                    "expectedControlType": "Button",
+                    "processors": "NormalizeVector3",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -124,6 +132,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e298400-cd96-4057-95a2-a25565b69c18",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
