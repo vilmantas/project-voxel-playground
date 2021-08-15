@@ -10,8 +10,6 @@ public class TileInitializerComponent : MonoBehaviour
     {
         var result = new GameObject[map.Length][][];
 
-        GameObject[][] matrix2d;
-
         for (int i = 0; i < map.Length; i++)
         {
             result[i] = new GameObject[map[i].Length][];
@@ -44,8 +42,6 @@ public class TileInitializerComponent : MonoBehaviour
 
     public static void InstantiateTilesForMap(int[][][] map, OriginComponent parent, Transform transform, bool WallMode, TilesWithWidthsAndWeights[] tiles, out GameObject[][][] instantiatedMap, (bool ignoreExisting, bool x, bool y, bool z) options)
     {
-        Quaternion zeroQuaternion = new Quaternion();
-
         Renderer renderer;
 
         instantiatedMap = GenerateEmptyMap(map);

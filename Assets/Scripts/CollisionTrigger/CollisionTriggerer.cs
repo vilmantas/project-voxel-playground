@@ -3,68 +3,89 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Activatable))]
 [RequireComponent(typeof(ActivatableTriggererType))]
-public class CollisionTriggerer : ActivatableTriggerer
+public class CollisionTriggerer : ActivationContender
 {
     public Activatable Target;
 
-    public ActivatableTriggerer Collider;
+    public ActivationContender Collider;
 
     [Header("How to trigger the target")]
     public TriggerType Type;
 
     public ActivatableTriggererType TriggerTypeComponent;
 
-    public bool TryActivate;
+    public bool TryActivateOnEnter;
+
+    public bool TryActivateOnExit;
 
     void OnTriggerEnter(Collider other)
     {
-        if (TryActivate)
+        var contender = other.GetComponent<ActivationContender>();
+
+        if (contender != Collider) return;
+
+        if (TryActivateOnEnter)
         {
-            Activate(other);
+            Target.TryActivate(contender, TriggerTypeComponent);
         }
         else
         {
-            var otherTriggerer = other.GetComponent<ActivatableTriggerer>();
-
-            if (otherTriggerer == Collider)
+            switch (TriggerTypeComponent)
             {
-                var type = TriggerTypeComponent as FlagActivatableTriggererType;
+                case FlagActivatableTriggererType flagger:
+                    flagger.TrySetFlag(Target, contender);
+                    break;
 
-                type.TrySetFlag(Target, Collider);
+                case NotifyActivatableTriggererType notifier:
+                    notifier.TryNotify(Target, contender);
+                    break;
+
+                default:
+                    break;
             }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (TryActivate)
-        {
-            Activate(other);
-        }
-        else
-        {
-            var otherTriggerer = other.GetComponent<ActivatableTriggerer>();
+        var contender = other.GetComponent<ActivationContender>();
 
-            if (otherTriggerer == Collider)
+        if (contender == Collider)
+        {
+            if (TryActivateOnExit)
             {
-                var type = TriggerTypeComponent as FlagActivatableTriggererType;
+                Target.TryActivate(contender, TriggerTypeComponent);
+            } 
+            else
+            {
+                switch (TriggerTypeComponent)
+                {
+                    case FlagActivatableTriggererType flagger:
+                        flagger.TryUnsetFlag(Target, contender);
+                        break;
 
-                type.TryUnsetFlag(Target, Collider);
+                    case NotifyActivatableTriggererType notifier:
+                        notifier.TryNotify(Target, contender);
+                        break;
+
+                    default:
+                        break;
+                }
             }
+
         }
     }
 
     private void Activate(Collider other)
     {
-        var otherTriggerer = other.GetComponent<ActivatableTriggerer>();
+        var otherTriggerer = other.GetComponent<ActivationContender>();
 
         if (otherTriggerer == Collider)
         {
-            var type = TriggerTypeComponent as FlagActivatableTriggererType;
-
-            type.TryActivate(Target, Collider);
+            Target.TryActivate(otherTriggerer, TriggerTypeComponent);
         }
     }
+
+
 }

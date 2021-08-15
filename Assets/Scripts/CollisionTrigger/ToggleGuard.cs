@@ -6,7 +6,7 @@ public class ToggleGuard : ActivatableGuard
 {
     public GameObject CollisionTriggerer;
 
-    public bool TryToggle(ActivatableTriggerer toggleRequester)
+    public bool TryToggle(ActivationContender toggleRequester)
     {
         if (CollisionTriggerer == toggleRequester)
         {
@@ -15,5 +15,13 @@ public class ToggleGuard : ActivatableGuard
         }
 
         return false;
+    }
+
+    public override ActivatableGuard Clone()
+    {
+        var result = new ToggleGuard();
+        result.CollisionTriggerer = CollisionTriggerer;
+
+        return result;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModelToggleScript : Activatable
+public class ModelToggleScript : GuardedActivatable
 {
     public Renderer WhenOn;
 
@@ -10,15 +10,9 @@ public class ModelToggleScript : Activatable
 
     public bool DefaultValue = true;
 
-    public override void Activate(ActivatableTriggerer activatableTriggerer)
-    {
-        Toggle();
-    }
+    public override void Activate(ActivationContender activatableTriggerer) => Toggle();
 
-    public override void Activate()
-    {
-        Toggle();
-    }
+    public override void Activate() => Toggle();
 
     private void Toggle()
     {

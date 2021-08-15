@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454652194531438265}
   - component: {fileID: 2849556212307756888}
+  - component: {fileID: 4546515341432793845}
   m_Layer: 0
   m_Name: shooter
   m_TagString: Untagged
@@ -45,6 +46,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtletModel: {fileID: 5127436280946763499, guid: 5e436f01fcdce4c4582b669b2e63b7b9, type: 3}
   BulletSpeed: 25
+--- !u!114 &4546515341432793845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3150145491933776968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f83cc2b5ebaf0904f86b4e24280ed030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  Text: {fileID: 0}
+  CharacterActionsController: {fileID: 2109216370, guid: ba341c9ab29de944da4c93ca14d65d8b, type: 3}
 --- !u!1001 &361162668523169755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58,15 +76,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc7363cb828c54a4ab6c20359bf7a588, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.915715
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc7363cb828c54a4ab6c20359bf7a588, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.4813838
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc7363cb828c54a4ab6c20359bf7a588, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 5.535813
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cc7363cb828c54a4ab6c20359bf7a588, type: 3}
       propertyPath: m_LocalRotation.w

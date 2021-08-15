@@ -8,13 +8,13 @@ using UnityEngine;
 [RequireComponent(typeof(WeightDistributionComponent))]
 public class TileRandomizerComponent : MonoBehaviour
 {
-    [Range(1, 10)]
+    [Range(1, 80)]
     public int Length = 5;
 
-    [Range(1, 10)]
+    [Range(1, 80)]
     public int Height = 5;
 
-    [Range(1, 10)]
+    [Range(1, 80)]
     public int Depth = 5;
 
     public int Target = 300;

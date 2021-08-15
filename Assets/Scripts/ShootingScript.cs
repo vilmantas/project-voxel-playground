@@ -8,7 +8,7 @@ public class ShootingScript : ActivatableItem
 
     public float BulletSpeed;
 
-    public override void Activate(ActivatableTriggerer activatableTriggerer)
+    public override void Activate(ActivationContender activatableTriggerer)
     {
         Shoot();
     }
