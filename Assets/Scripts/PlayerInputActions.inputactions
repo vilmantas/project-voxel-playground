@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "NormalizeVector3",
                     "interactions": ""
+                },
+                {
+                    "name": "ActivateOffhand",
+                    "type": "Value",
+                    "id": "bdcf17f0-abfb-45e2-a15b-cf97d516714c",
+                    "expectedControlType": "Analog",
+                    "processors": "NormalizeVector3",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -143,6 +151,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc3f17c7-2aff-44a5-a648-1b6ab76ddc00",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateOffhand",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
