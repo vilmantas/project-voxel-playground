@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2367764531497033078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5837485430349442946}
+  - component: {fileID: 7476444539608922141}
+  m_Layer: 0
+  m_Name: Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5837485430349442946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367764531497033078}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8, y: 0.4000001, z: 9.599999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5974775297027997574}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7476444539608922141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367764531497033078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5baac8eb739c44e896a21655f4ed87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3645314686367297667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5974775297027997574}
+  - component: {fileID: 140967969086046915}
+  - component: {fileID: 6989467993826609733}
+  - component: {fileID: 8535518658270562272}
+  m_Layer: 0
+  m_Name: WoodFloorGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5974775297027997574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645314686367297667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.35, y: -4, z: -5.5576544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5837485430349442946}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140967969086046915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645314686367297667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb81fdf263a09149a2525dec210c39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rotate90DegXAxis: 0
+  Rotate90DegZAxis: 0
+  Rotate90DegYAxis: 0
+--- !u!114 &6989467993826609733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645314686367297667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadb52b930d592f4caf258173d5e0e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tiles:
+  - Tile: {fileID: 553056477994407967, guid: fbe74873908a1554b8fab2b9e1c57b3b, type: 3}
+    Weight: 12
+    UnitCost: 0
+  - Tile: {fileID: 6080182090134267242, guid: a73c56371a4de8b4894dfeb76ec3a35d, type: 3}
+    Weight: 12
+    UnitCost: 0
+  - Tile: {fileID: 6753665672128821877, guid: 4dd46e3118ef2164ab96326111cb0bdd, type: 3}
+    Weight: 12
+    UnitCost: 0
+  - Tile: {fileID: 1779458910698994991, guid: fce9355df0e4b8b42b211a993cb92042, type: 3}
+    Weight: 12
+    UnitCost: 0
+  - Tile: {fileID: 863609562974235255, guid: 4e9b46d253b19d94ca89e36a6cbc1c41, type: 3}
+    Weight: 120
+    UnitCost: 0
+--- !u!114 &8535518658270562272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645314686367297667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1153f0ec55f920345a6930ac536caf10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Length: 5
+  Height: 1
+  Depth: 24
+  Target: 0
+  UseTargetAndUnits: 0
