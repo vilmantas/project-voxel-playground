@@ -15,6 +15,9 @@ public class MainHandComponent : Activatable
         if (activatableItem == null) return;
 
         activatableItem.Activate();
+
+        if (activatableItem.IsExhausted)
+            UnequipItem();
     }
 
     public bool EquipItem(GameObject item)
@@ -28,6 +31,15 @@ public class MainHandComponent : Activatable
         EquipedItem.transform.localPosition = Vector3.zero;
 
         EquipedItem.transform.localEulerAngles = Vector3.zero;
+
+        return true;
+    }
+
+    public bool UnequipItem()
+    {
+        transform.Rotate(Vector3.right, 90);
+
+        Destroy(EquipedItem);
 
         return true;
     }

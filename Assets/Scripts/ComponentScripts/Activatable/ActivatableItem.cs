@@ -4,4 +4,5 @@ using UnityEngine;
 
 public abstract class ActivatableItem : Activatable
 {
+    public bool IsExhausted = false;
 }
